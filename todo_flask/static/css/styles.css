@@ -26,6 +26,34 @@ nav a:hover {
     text-decoration: underline;
 }
 
+.search-conteiner {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-conteiner form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-conteiner input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 250px;
+}
+
+.btn-clear {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-clear:hover {
+    background-color: #b02a37;
+}
+
 .conteiner {
     width: 80%;
     max-width: 1000px;
@@ -200,3 +228,4 @@ nav a:hover {
 .btn-submit:hover {
     background-color: #0056b3;
 }
+
