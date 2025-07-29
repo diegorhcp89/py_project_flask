@@ -64,5 +64,14 @@ def delete_task(task_id):
     flash("Tarefa removida com sucesso!", "danger")
     return redirect(url_for("index"))
 
+# Rota para alterar o status da tarefa
+@app.route("/toggle_status/<int:task_id>", methods=["POST"])
+def toggle_status(task_id):
+    task = Todo.query.get_or_404(task_id)
+    task.status = not task.status
+    db.session.commit()
+    flash(f"Tarefa '{task.title}' atualizada!", 'success')
+    return redirect(url_for('index'))
+
 if __name__=="__main__":
     app.run(debug=True)
