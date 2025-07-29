@@ -6,6 +6,11 @@
     <title>TODO List</title>
 </head>
 <body>
+    <nav>
+        <h1>TODO List</h1>
+        <a href="{{ url_for('index') }}">Tarefas</a>
+        <a href="{{ url_for('add_task') }}">Adicionar Tarefa</a>
+    </nav>
     {%block content %}{% endblock %}
 </body>
 </html>
