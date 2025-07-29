@@ -55,6 +55,13 @@ def add_task():
 
     return render_template("add_task.html", form=form)
 
+@app.route("/edit/<int:task_id>", methods=["GET", "POST"])
+def edit_task(task_id):
+    task = Todo.query.get_or_404(task_id)
+    form = TaksForm(obj=task)
+
+    return render_template("edit_task.html", form=form, task=task)
+
 # Rota para excluir tarefas
 @app.route("/delete/<int:task_id>", methods=["POST"])
 def delete_task(task_id):
