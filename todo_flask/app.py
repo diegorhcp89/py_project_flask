@@ -55,5 +55,14 @@ def add_task():
 
     return render_template("add_task.html", form=form)
 
+# Rota para excluir tarefas
+@app.route("/delete/<int:task_id>", methods=["POST"])
+def delete_task(task_id):
+    task = Todo.query.get_or_404(task_id)
+    db.session.delete(task)
+    db.session.commit()
+    flash("Tarefa removida com sucesso!", "danger")
+    return redirect(url_for("index"))
+
 if __name__=="__main__":
     app.run(debug=True)
