@@ -1,5 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
+from flask_wtf import FlaskForm
+from wtforms import StringField, TextAreaField, BooleanField, SubmitField
+from wtforms.validators import DataRequired
 
 # Iniciando o Flask
 app = Flask(__name__)
@@ -21,6 +24,13 @@ class Todo(db.Model):
 with app.app_context():
     db.create_all()
 
+# Criar classe do formulario
+class TaksForm(FlaskForm):
+    title = StringField("Titulo", validators=[DataRequired()])
+    description = TextAreaField("Descrição")
+    status = BooleanField("Concluido")
+    submit = SubmitField("Salvar")
+
 # Rota Principal
 @app.route("/")
 def index():
@@ -28,7 +38,8 @@ def index():
 
 @app.route("/add", methods=["GET", "POST"])
 def add_task():
-    return render_template("add_task.html")
+    form = TaksForm()
+    return render_template("add_task.html", form=form)
 
 if __name__=="__main__":
     app.run(debug=True)
