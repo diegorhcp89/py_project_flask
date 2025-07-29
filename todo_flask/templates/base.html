@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +11,17 @@
         <a href="{{ url_for('index') }}">Tarefas</a>
         <a href="{{ url_for('add_task') }}">Adicionar Tarefa</a>
     </nav>
-    {%block content %}{% endblock %}
+
+    <div class="conteiner">
+        {% with messagens = get_flashed_messages(with_categories=True) %}
+            {% if messagens %}
+                {% for category, message in messagens %}
+                    <div class="{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>

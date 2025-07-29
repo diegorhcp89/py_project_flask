@@ -45,6 +45,7 @@ def add_task():
         db.session.add(new_task)
         db.session.commit()
         # Flash message de sucesso
+        flash("Tarefa criada com sucesso", "success")
         return redirect(url_for("index"))
 
     return render_template("add_task.html", form=form)
