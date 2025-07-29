@@ -34,7 +34,12 @@ class TaksForm(FlaskForm):
 # Rota Principal
 @app.route("/")
 def index():
-    return render_template("index.html")
+
+    # Busca de tarefas
+
+    tasks = Todo.query.all()
+
+    return render_template("index.html", tasks=tasks)
 
 @app.route("/add", methods=["GET", "POST"])
 def add_task():

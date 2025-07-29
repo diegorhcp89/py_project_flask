@@ -1,3 +1,44 @@
 {% extends 'base.html' %} {% block content %}
 <h2>Lista de Tarefas</h2>
+<!-- Formulario de Busca -->
+
+<!-- Tabela das tarefas -->
+ <div class="task-conteiner">
+    <table class="task-table">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+
+                <tr>
+                    <td>
+                        {{ task.title }}
+                    </td>
+                    <td>
+                        {{ task.description }}
+                    </td>
+                    <td>
+                        <span>
+                            {% if task.status %}Conclúido{% else %}Pendente{% endif %}
+                        </span>
+                    </td>
+                    <td class="action-conteiner">
+                        <button class="btn btn-status">
+                            {% if task.status  %}Reabrir{% else %}Completar{% endif %}
+                        </button>
+                        <a href="/" class="btn btn-edit">Editar</a>
+                        <button class="btn btn-delete">Excluir</button>
+                    </td>
+                </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+ </div>
 {% endblock %}
