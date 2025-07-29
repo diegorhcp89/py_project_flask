@@ -39,6 +39,14 @@ def index():
 @app.route("/add", methods=["GET", "POST"])
 def add_task():
     form = TaksForm()
+
+    if form.validate_on_submit():
+        new_task = Todo(title=form.title.data, description=form.description.data, status=form.status.data)
+        db.session.add(new_task)
+        db.session.commit()
+        # Flash message de sucesso
+        return redirect(url_for("index"))
+
     return render_template("add_task.html", form=form)
 
 if __name__=="__main__":
