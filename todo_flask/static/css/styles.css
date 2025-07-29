@@ -58,5 +58,79 @@ nav a:hover {
 /* Form de busca */
 
 /* Tabela */
+.task-conteiner {
+    width: 100%;
+    margin: auto;
+}
+
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.task-table th,
+.task-table td {
+    padding: 12px;
+    border: 3px solid #ddd;
+    text-align: left;
+}
+
+.task-table th {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+}
+
+.task-table tr:nth-child(even) {
+    background-color: #f3eded;
+}
+
+.text-risk {
+    text-decoration: line-through;
+    color: #808080;
+}
+
+.action-conteiner {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn-status {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-status:hover {
+    background-color: #0056b3;
+}
+
+.btn-edit {
+    background-color: #f39c12;
+    color: #fff;
+}
+
+.btn-edit:hover {
+    background-color: #d68910;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-delete:hover {
+    background-color: #b02a37;
+}
 
 /* Formulários */

@@ -21,7 +21,7 @@
                         {{ task.title }}
                     </td>
                     <td>
-                        {{ task.description }}
+                        {{ task.description[:50] }} {% if task.description|length > 50 %}...{% endif %}
                     </td>
                     <td>
                         <span>
