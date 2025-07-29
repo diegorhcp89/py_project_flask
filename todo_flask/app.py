@@ -36,8 +36,12 @@ class TaksForm(FlaskForm):
 def index():
 
     # Busca de tarefas
+    search_query = request.args.get('search', '').strip()
 
-    tasks = Todo.query.all()
+    if search_query:
+        tasks = Todo.query.filter(Todo.title.ilike(f"%{search_query}%")).all()
+    else:
+        tasks = Todo.query.all()
 
     return render_template("index.html", tasks=tasks)
 

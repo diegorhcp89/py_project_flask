@@ -4,11 +4,11 @@
  <div class="search-conteiner">
     <form method="GET" action="{{ url_for('index') }}">
         <input type="text" name="search" placeholder="Pesquisar tarefas..." value="{{ request.args.get('search', '' )}}">
-    </form>
-    <button type="submit" class="btn">Buscar</button>
-    {% if request.args.get('search') %}
+        <button type="submit" class="btn">Buscar</button>
+            {% if request.args.get('search') %}
         <a href="{{ url_for('index') }}" class="btn btn-clear">Limpar</a>
-    {% endif %}
+            {% endif %}
+    </form>
  </div>
 
 <!-- Tabela das tarefas -->
