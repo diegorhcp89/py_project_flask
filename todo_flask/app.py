@@ -64,6 +64,14 @@ def edit_task(task_id):
     task = Todo.query.get_or_404(task_id)
     form = TaksForm(obj=task)
 
+    if form.validate_on_submit():
+        task.title = form.title.data
+        task.description = form.description.data
+        task.status = form.status.data
+        db.session.commit()
+        flash("Tarefa atualizada com sucesso!", "success")
+        return redirect(url_for("index"))
+
     return render_template("edit_task.html", form=form, task=task)
 
 # Rota para excluir tarefas
